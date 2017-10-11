@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_team33" default="compile.module.team33">
+  <dirname property="module.team33.basedir" file="${ant.file.module_team33}"/>
+  
+  <property name="module.jdk.home.team33" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.team33" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.team33" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.team33" value="-encoding UTF-8 -source 9 -target 9 ${compiler.args}"/>
+  
+  <property name="team33.output.dir" value="undefined"/>
+  <property name="team33.testoutput.dir" value="undefined"/>
+  
+  <path id="team33.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="team33.module.production.classpath"/>
+  
+  <path id="team33.runtime.production.module.classpath"/>
+  
+  <path id="team33.module.classpath"/>
+  
+  <path id="team33.runtime.module.classpath"/>
+  
+  
+  <patternset id="excluded.from.module.team33">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.team33">
+    <patternset refid="excluded.from.module.team33"/>
+  </patternset>
+  
+  
+  <target name="compile.module.team33" depends="compile.module.team33.production,compile.module.team33.tests" description="Compile module team33"/>
+  
+  <target name="compile.module.team33.production" depends="register.custom.compilers" description="Compile module team33; production classes"/>
+  
+  <target name="compile.module.team33.tests" depends="register.custom.compilers,compile.module.team33.production" description="compile module team33; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.team33" description="cleanup module">
+    <delete dir="${team33.output.dir}"/>
+    <delete dir="${team33.testoutput.dir}"/>
+  </target>
+</project>
