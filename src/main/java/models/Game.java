@@ -28,8 +28,21 @@ public class Game {
     }
 
     public void shuffle() {
+        Random random = new Random();
+        for(int i = 0; i < 999999; i++){
+                int a = random.nextInt(52);
+                int b = random.nextInt(52);
+            Card temp = deck.get(a);
+            deck.set(a, deck.get(b));
+            deck.set(b,temp);
+        }
+        /*just to check if the shuffle works by printing it on the terminal screen(uncomment if you want to test)*/
+       // for(int i = 0; i<52; i++) {
+         //   System.out.println(deck.get(i).suit + "\t" + deck.get(i).value);
+        //}
+
         // shuffles the deck so that it is
-        
+
     }
 
     public void dealFour() {
