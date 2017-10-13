@@ -1,6 +1,7 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
 //THIS IS A TESTTTTT
@@ -14,8 +15,12 @@ public class Game {
     public java.util.List<java.util.List<Card>> cols = new ArrayList<>(4);
 
 
+
+
+
     public Game(){
         // initialize a new game such that each column can store cards
+
     }
 
     public void buildDeck() {
@@ -36,16 +41,24 @@ public class Game {
             deck.set(a, deck.get(b));
             deck.set(b,temp);
         }
-        /*just to check if the shuffle works by printing it on the terminal screen(uncomment if you want to test)*/
-       // for(int i = 0; i<52; i++) {
-         //   System.out.println(deck.get(i).suit + "\t" + deck.get(i).value);
-        //}
+        //just to check if the shuffle works by printing it on the terminal screen(uncomment if you want to test)*/
+        for(int i = 0; i<52; i++) {
+            System.out.println(deck.get(i).suit + "\t" + deck.get(i).value);
+        }
 
         // shuffles the deck so that it is
 
     }
-
-    public void dealFour() {
+//deals four cards when user clicks deal or at beginning of game, will stop dealing when no more cards left in deck
+    public void dealFour() { //deck.add(new Card(i,Suit.Clubs));
+        for(int i = 0; i < 4; i++){
+            if(deck.isEmpty() != true){
+                Card temp = deck.get(0);
+                cols.add(new ArrayList<Card>());
+                deck.remove(0);
+                cols.get(i).add(temp);
+            }
+        }
         // remove the top card from the deck and add it to a column; repeat for each of the four columns
     }
 
