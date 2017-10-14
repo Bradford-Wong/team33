@@ -73,10 +73,11 @@ public class Game {
         if(this.cols.get(columnNumber).size() > 0){
             return true;
         } else {
+            System.out.println("Column is empty");
             return false;
         }
 
-        return false;
+
     }
 
     private Card getTopCard(int columnNumber) {
