@@ -64,6 +64,7 @@ public class Game {
 
     public void remove(int columnNumber) {
         // remove the top card from the indicated column
+        columnHasCards(columnNumber);
         this.cols.get(columnNumber).remove(0);
     }
 
