@@ -84,6 +84,7 @@ public class Game {
             return true;
         }
         return false;
+
     }
 
     private Card getTopCard(int columnNumber) {
