@@ -14,7 +14,11 @@ font-weight: bold;
 
 .cardLocation{
 width: 100px;
-background-color:#F0F0F0;
+}
+
+.cardImage{
+max-width: 100px;
+margin-bottom:-120%;
 }
 
 #dealButton{
