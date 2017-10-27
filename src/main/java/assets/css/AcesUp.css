@@ -16,3 +16,80 @@ font-weight: bold;
 width: 100px;
 background-color:#F0F0F0;
 }
+
+#dealButton{
+  margin-top: -90px;
+  margin-left: 500px;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  border: 1px solid #4CAF50;
+  cursor: pointer;
+  background-color: #4CAF50;
+
+}
+#Remove1{
+
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+    margin-right: 25px;
+}
+#Remove2{
+ background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+    margin-right: 25px;
+    margin-bottom: 30px;
+}
+#Remove3{
+ background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+    margin-right: 25px;
+}
+#Remove4{
+ background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#textremove{
+margin-left: 100px;
+}
+
+#moveButton{
+    background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        cursor: pointer;
+}
