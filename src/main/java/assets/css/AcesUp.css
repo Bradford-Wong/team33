@@ -27,7 +27,11 @@ font-weight: bold;
 
 .cardLocation{
 width: 100px;
-background-color:#F0F0F0;
+}
+
+.cardImage{
+max-width: 100px;
+margin-bottom:-110%;
 }
 
 #dealButton{
@@ -93,6 +97,7 @@ background-color:#F0F0F0;
 
 #textremove{
 margin-left: 100px;
+margin-top: 100px;
 }
 
 #moveButton{
