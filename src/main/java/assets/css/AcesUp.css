@@ -1,5 +1,14 @@
-body {
-	background-image: url('Fine-Wood-Textures.jpg');
+body{
+    background-image: url('Fine-Wood-Textures.jpg');
+
+
+}
+
+h1 {
+    font-size: 70px;
+    padding-left: 50px;
+    font-family: "Verdana";
+    color: #00822f;
 }
 
 tr{
