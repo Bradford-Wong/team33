@@ -18,7 +18,7 @@ width: 100px;
 
 .cardImage{
 max-width: 100px;
-margin-bottom:-120%;
+margin-bottom:-110%;
 }
 
 #dealButton{
@@ -84,6 +84,7 @@ margin-bottom:-120%;
 
 #textremove{
 margin-left: 100px;
+margin-top: 100px;
 }
 
 #moveButton{
