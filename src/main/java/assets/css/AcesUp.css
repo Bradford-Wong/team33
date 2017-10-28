@@ -1,5 +1,7 @@
-body {
-	background-image: url('Fine-Wood-Textures.jpg');
+body{
+    background-image: url('Fine-Wood-Textures.jpg');
+
+    
 }
 
 tr{
@@ -18,11 +20,7 @@ font-weight: bold;
 
 .cardLocation{
 width: 100px;
-}
-
-.cardImage{
-max-width: 100px;
-margin-bottom:-120%;
+background-color:#F0F0F0;
 }
 
 #dealButton{
