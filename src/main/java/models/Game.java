@@ -1,15 +1,18 @@
 package models;
-
+import  models.Error;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
-
+        import javax.swing.JButton;
+        import javax.swing.JFrame;
+        import javax.swing.JOptionPane;
 /**
  * Assignment 1: Students must implement dealFour(), remove(), move(), and columnHasCards() methods
  *
  * The customDeal() method is not present in the Assignment1_Student version since tests (and the test dir) are removed
  * to prevent confusion regarding testing and the use of unit tests; testing is covered more thoroughly in CS362.
  */
+
 public class Game {
 
     public java.util.List<Card> deck = new ArrayList<>();
@@ -39,6 +42,7 @@ public class Game {
     }
 
     public void dealFour() {
+
         for(int i = 0; i < 4; i++){
             cols.get(i).add(deck.get(deck.size()-1));
             deck.remove(deck.size()-1);
@@ -60,6 +64,7 @@ public class Game {
     public void remove(int columnNumber) {
         if(columnHasCards(columnNumber)) {
             Card c = getTopCard(columnNumber);
+            Error e = new Error();
             boolean removeCard = false;
             for (int i = 0; i < 4; i++) {
                 if (i != columnNumber) {
@@ -93,9 +98,25 @@ public class Game {
 
 
     public void move(int columnFrom, int columnTo) {
-        Card cardToMove = getTopCard(columnFrom);
-        this.removeCardFromCol(columnFrom);
-        this.addCardToCol(columnTo,cardToMove);
+        Error e = new Error();
+        if(columnFrom == columnTo){
+            e.infoBox("Can't move to the same column!", "Moving Error");
+        }
+        if(columnHasCards(columnTo)){
+            e.infoBox("This spot isn't empty to move the card to!", "Moving Error");
+
+        }
+       if(columnHasCards(columnFrom) == false){
+            e.infoBox("This spot doesn't have cards to move from!","Moving Error");
+
+        }
+
+        if((columnHasCards(columnFrom)== true && columnHasCards(columnTo)== false)) {
+            Card cardToMove = getTopCard(columnFrom);
+            this.removeCardFromCol(columnFrom);
+            this.addCardToCol(columnTo, cardToMove);
+        }
+
     }
 
     private void addCardToCol(int columnTo, Card cardToMove) {
@@ -105,4 +126,8 @@ public class Game {
     private void removeCardFromCol(int colFrom) {
         this.cols.get(colFrom).remove(this.cols.get(colFrom).size()-1);
     }
+
+
+
 }
+
