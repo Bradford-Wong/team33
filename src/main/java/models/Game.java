@@ -94,8 +94,14 @@ public class Game {
 
     public void move(int columnFrom, int columnTo) {
         Card cardToMove = getTopCard(columnFrom);
-        this.removeCardFromCol(columnFrom);
-        this.addCardToCol(columnTo,cardToMove);
+        System.out.println("Trying to move value " + cardToMove.getValue());
+        if(!columnHasCards(columnTo) && cardToMove.getValue() == 14){ //check that moving to empty column. Will need to change this line a bit when refactor
+            this.removeCardFromCol(columnFrom);
+            this.addCardToCol(columnTo,cardToMove);
+        }else{ //probably print an error message here
+
+        }
+
     }
 
     private void addCardToCol(int columnTo, Card cardToMove) {
