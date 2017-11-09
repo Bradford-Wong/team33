@@ -15,11 +15,14 @@
  */
 
 package controllers;
-
+import models.Error;
 import models.Game;
 import ninja.Context;
 import ninja.Result;
 import ninja.Results;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import com.google.inject.Singleton;
 import ninja.params.PathParam;
@@ -34,6 +37,8 @@ public class ApplicationController {
     
     public Result gameGet(){
         Game g = new Game();
+        Error e = new Error();
+      //  e.infoBox("heiwohri","hfihsdihfda");
         g.buildDeck();
         g.shuffle();
         g.dealFour();
