@@ -98,6 +98,7 @@ public class Game {
 
 
     public void move(int columnFrom, int columnTo) {
+        //
         if(columnHasCards(columnFrom)){
             Card cardToMove = getTopCard(columnFrom);
             if(!columnHasCards(columnTo) && cardToMove.getValue() == 14 && columnHasCards(columnFrom)){ //check that moving to empty column. Will need to change this line a bit when refactor
