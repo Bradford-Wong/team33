@@ -64,7 +64,7 @@ public class Game {
     public void remove(int columnNumber) {
         if(columnHasCards(columnNumber)) {
             Card c = getTopCard(columnNumber);
-            Error e = new Error();
+
             boolean removeCard = false;
             for (int i = 0; i < 4; i++) {
                 if (i != columnNumber) {
@@ -80,6 +80,9 @@ public class Game {
             }
             if (removeCard) {
                 this.cols.get(columnNumber).remove(this.cols.get(columnNumber).size() - 1);
+            }else{
+                Error e = new Error();
+                e.infoBox("A card can only be removed when another card is showing at the top of another pile with the same suit and higher value!", "Remove Error");
             }
         }
     }
