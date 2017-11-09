@@ -113,12 +113,14 @@ public class Game {
                     e.infoBox("This spot isn't empty to move the card to!", "Moving Error");
 
                 }
-
+                if(!columnHasCards(columnTo) && cardToMove.getValue() != 14 && columnHasCards(columnFrom)){
+                    e.infoBox("Can't move non-Ace Cards!", "Moving Error");
+                }
             }
         }else{ //when the column moving from is empty
             if(columnHasCards(columnFrom) == false){
                 Error e = new Error();
-                e.infoBox("This spot doesn't have cards to move from!","Moving Error");
+                e.infoBox("This spot doesn't have any cards to move from!","Moving Error");
 
             }
 
