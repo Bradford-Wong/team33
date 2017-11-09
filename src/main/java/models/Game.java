@@ -98,24 +98,33 @@ public class Game {
 
 
     public void move(int columnFrom, int columnTo) {
-        Error e = new Error();
-        if(columnFrom == columnTo){
-            e.infoBox("Can't move to the same column!", "Moving Error");
-        }
-        if(columnHasCards(columnTo)){
-            e.infoBox("This spot isn't empty to move the card to!", "Moving Error");
-
-        }
-       if(columnHasCards(columnFrom) == false){
-            e.infoBox("This spot doesn't have cards to move from!","Moving Error");
-
-        }
-
-        if((columnHasCards(columnFrom)== true && columnHasCards(columnTo)== false)) {
+        //
+        if(columnHasCards(columnFrom)){
             Card cardToMove = getTopCard(columnFrom);
-            this.removeCardFromCol(columnFrom);
-            this.addCardToCol(columnTo, cardToMove);
+            if(!columnHasCards(columnTo) && cardToMove.getValue() == 14 && columnHasCards(columnFrom)){ //check that moving to empty column. Will need to change this line a bit when refactor
+                this.removeCardFromCol(columnFrom);
+                this.addCardToCol(columnTo,cardToMove);
+            }else { //When make an invalid move when there is a card in the column that moving from
+                Error e = new Error();
+                if(columnFrom == columnTo){
+                    e.infoBox("Can't move to the same column!", "Moving Error");
+                }
+                if(columnHasCards(columnTo)){
+                    e.infoBox("This spot isn't empty to move the card to!", "Moving Error");
+
+                }
+
+            }
+        }else{ //when the column moving from is empty
+            if(columnHasCards(columnFrom) == false){
+                Error e = new Error();
+                e.infoBox("This spot doesn't have cards to move from!","Moving Error");
+
+            }
+
         }
+
+
 
     }
 
