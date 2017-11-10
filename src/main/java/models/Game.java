@@ -64,12 +64,13 @@ public class Game {
     public void remove(int columnNumber) {
         if(columnHasCards(columnNumber)) {
             Card c = getTopCard(columnNumber);
-
             boolean removeCard = false;
+           // Error e = new Error();
             for (int i = 0; i < 4; i++) {
                 if (i != columnNumber) {
                     if (columnHasCards(i)) {
                         Card compare = getTopCard(i);
+                        //System.out.println(compare);
                         if (compare.getSuit() == c.getSuit()) {
                             if (compare.getValue() > c.getValue()) {
                                 removeCard = true;
@@ -80,7 +81,8 @@ public class Game {
             }
             if (removeCard) {
                 this.cols.get(columnNumber).remove(this.cols.get(columnNumber).size() - 1);
-            }else{
+            }
+            else {
                 Error e = new Error();
                 e.infoBox("A card can only be removed when another card is showing at the top of another pile with the same suit and higher value!", "Remove Error");
             }
