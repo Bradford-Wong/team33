@@ -118,20 +118,26 @@ value = "K";
 } else if (value == 14) {
 value = "A";
 }
-return "<img class='cardImage' src='https://deckofcardsapi.com/static/img/" + value + suit[0] + ".png'>"
-
+//The reason we did this was because something was wrong with ace of diamonds with the api
+if(value + suit[0] == 'AD'){
+return "<img class='cardImage' src= 'https://i.gyazo.com/7379d159a2607da667816ffece46f937.png'>"
 }
+return "<img class='cardImage' src='https://deckofcardsapi.com/static/img/" + value + suit[0] + ".png'>"
+}
+
 function display(game) {
 console.log(game);
 
 $( '.columnOfCards .cardLocation' ).html("");
 
     $.each(game.cols[0], function( key, val ) {
+       // $( '#c0 .l'+key ).html(val.value + val.suit);
         $( '#c0 .l'+key ).html(cardImage(val.value,val.suit));
     });
 
  $.each(game.cols[1], function( key, val ) {
-        $( '#c1 .l'+key ).html(cardImage(val.value,val.suit));
+       $( '#c1 .l'+key ).html(cardImage(val.value,val.suit));
+
     });
 
  $.each(game.cols[2], function( key, val ) {
