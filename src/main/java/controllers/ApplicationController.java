@@ -37,8 +37,8 @@ public class ApplicationController {
     
     public Result gameGet(){
         Game g = new Game();
-        Error e = new Error();
-      //  e.infoBox("heiwohri","hfihsdihfda");
+//        Error e = new Error();
+//        e.infoBox("heiwohri","hfihsdihfda");
         g.buildDeck();
         g.shuffle();
         g.dealFour();

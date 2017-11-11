@@ -19,6 +19,14 @@ public class Game {
 
     public java.util.List<Column> cols = new ArrayList<>();
 
+
+    public Game(){
+        cols.add(new Column());
+        cols.add(new Column());
+        cols.add(new Column());
+        cols.add(new Column());
+    }
+
     public void buildDeck() {
         for(int i = 2; i < 15; i++){
             deck.add(new Card(i,Suit.Clubs));
@@ -55,7 +63,7 @@ public class Game {
     public void remove(int columnNumber) {
         for (int i = 0; i < 4; i++) {
             if (i != columnNumber) {
-                cols.get(i).remove();
+                cols.get(i).removeCard();
             }
         }
     }
@@ -99,7 +107,7 @@ public class Game {
     }
 
     private void removeCardFromCol(int colFrom) {
-        this.cols.get(colFrom).remove();
+        this.cols.get(colFrom).removeCard();
     }
 
 

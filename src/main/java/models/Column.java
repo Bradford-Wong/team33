@@ -11,7 +11,7 @@ public class Column {
     }
 
 
-    public boolean remove() {
+    public boolean removeCard() {
         if(columnHasCards()) {
             Card c = getTopCard();
             boolean removeCard = false;
