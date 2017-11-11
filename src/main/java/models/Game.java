@@ -88,7 +88,6 @@ public class Game {
                 if (i != columnNumber) {
                     if (cols.get(i).columnHasCards()) {
                         Card compare = cols.get(i).getTopCard();
-                        //System.out.println(compare);
                         if (compare.getSuit() == c.getSuit()) {
                             if (compare.getValue() > c.getValue()) {
                                 removeCard = true;
@@ -109,21 +108,12 @@ public class Game {
 
 
     public void move(int columnFrom, int columnTo) {
-        System.out.println("GASP1");
         if(cols.get(columnFrom).columnHasCards()){
-            System.out.println("GASP2");
             Card cardToMove = cols.get(columnFrom).getTopCard();
-            System.out.println(!cols.get(columnTo).columnHasCards());
-            System.out.println(cardToMove.getValue() == 14);
-            System.out.println(cols.get(columnFrom).columnHasCards());
-
             if(!cols.get(columnTo).columnHasCards() && cardToMove.getValue() == 14 && cols.get(columnFrom).columnHasCards()){ //check that moving to empty column. Will need to change this line a bit when refactor
-                //System.out.println(compare);
-                System.out.println("GASP2.5");
+
                 cols.get(columnFrom).removeCard();
-                System.out.println("GASP3");
                 cols.get(columnTo).addCardToCol(cardToMove);
-                System.out.println("SUCCESS");
             }else { //When make an invalid move when there is a card in the column that moving from
                 Error e = new Error();
                 if(columnFrom == columnTo){
