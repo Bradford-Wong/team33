@@ -17,6 +17,7 @@
 package controllers;
 import models.Error;
 import models.Game;
+import models.Deck;
 import ninja.Context;
 import ninja.Result;
 import ninja.Results;
@@ -36,11 +37,12 @@ public class ApplicationController {
     }
     
     public Result gameGet(){
+        Deck d = new Deck();
         Game g = new Game();
 //        Error e = new Error();
 //        e.infoBox("heiwohri","hfihsdihfda");
-        g.buildDeck();
-        g.shuffle();
+//        g.buildDeck();
+
         g.dealFour();
 
         return Results.json().render(g);

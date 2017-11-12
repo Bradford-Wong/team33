@@ -3,6 +3,7 @@
 
 package models;
 import  models.Error;
+import models.Deck;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -18,26 +19,22 @@ import javax.swing.JOptionPane;
 
 public class Game {
 
-    public java.util.List<Card> deck = new ArrayList<>();
-
+  //  private java.util.List<Deck> deck = new ArrayList<>();
+    public Deck deck = new Deck();
     private java.util.List<Column> cols = new ArrayList<>();
 
 
     public Game(){
+
         cols.add(new Column());
         cols.add(new Column());
         cols.add(new Column());
         cols.add(new Column());
+        deck.buildDeck();
+        deck.shuffle();
     }
 
-    public void buildDeck() {
-        for(int i = 2; i < 15; i++){
-            deck.add(new Card(i,Suit.Clubs));
-            deck.add(new Card(i,Suit.Hearts));
-            deck.add(new Card(i,Suit.Diamonds));
-            deck.add(new Card(i,Suit.Spades));
-        }
-    }
+
 
     public java.util.List<Card> getcol1() {    //This is because apparantly the routing backend has trouble converting the columns to json
         return cols.get(0).col;
@@ -55,10 +52,7 @@ public class Game {
         return cols.get(3).col;
     }
 
-    public void shuffle() {
-        long seed = System.nanoTime();
-        Collections.shuffle(deck, new Random(seed));
-    }
+
 
     public void dealFour() {
         for(int i = 0; i < 4; i++){
@@ -68,7 +62,7 @@ public class Game {
     }
 
     //customDeal to setup game for testing purposes
-    public void customDeal(int c1, int c2, int c3, int c4) {
+   /* public void customDeal(int c1, int c2, int c3, int c4) {
         cols.get(0).addCardToCol(deck.get(c1));
         deck.remove(c1);
         cols.get(1).addCardToCol(deck.get(c2));
@@ -77,7 +71,7 @@ public class Game {
         deck.remove(c3);
         cols.get(3).addCardToCol(deck.get(c4));
         deck.remove(c4);
-    }
+    }*/
 
     public void remove(int columnNumber) {
         if(cols.get(columnNumber).columnHasCards()) {
