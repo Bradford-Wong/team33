@@ -48,7 +48,6 @@ public class testGame {
     @Test
     public void testCustomDeal(){
         Game g = new Game();
-     //   g.buildDeck();
         g.customDeal(0,3,6,9);
         assertEquals("2Clubs", g.getcol1().get(0).toString());
         assertEquals("3Clubs",g.getcol2().get(0).toString());
