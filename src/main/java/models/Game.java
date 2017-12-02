@@ -18,8 +18,7 @@ import javax.swing.JOptionPane;
  */
 
 public class Game {
-
-  //  private java.util.List<Deck> deck = new ArrayList<>();
+    
     public Deck deck = new Deck();
     private java.util.List<Column> cols = new ArrayList<>();
     public Error e = new Error();
@@ -30,8 +29,6 @@ public class Game {
         cols.add(new Column());
         cols.add(new Column());
         cols.add(new Column());
-      //  deck.buildDeck();
-       // deck.shuffle();
     }
 
 
@@ -81,7 +78,6 @@ public class Game {
         if(cols.get(columnNumber).columnHasCards()) {
             Card c = cols.get(columnNumber).getTopCard();
             boolean removeCard = false;
-            // Error e = new Error();
             for (int i = 0; i < 4; i++) {
                 if (i != columnNumber) {
                     if (cols.get(i).columnHasCards()) {
@@ -98,7 +94,6 @@ public class Game {
                 this.cols.get(columnNumber).removeCard();
             }
             else {
-              //  Error e = new Error();
                 e.infoBox("A card can only be removed when another card is showing at the top of another pile with the same suit and higher value!", "Remove Error");
             }
         }
@@ -113,7 +108,6 @@ public class Game {
                 cols.get(columnFrom).removeCard();
                 cols.get(columnTo).addCardToCol(cardToMove);
             }else { //When make an invalid move when there is a card in the column that moving from
-               // Error e = new Error();
                 if(columnFrom == columnTo){
                     e.infoBox("Can't move to the same column!", "Moving Error");
                 }
@@ -127,7 +121,6 @@ public class Game {
             }
         }else{ //when the column moving from is empty
             if(cols.get(columnFrom).columnHasCards() == false){
-               // Error e = new Error();
                 e.infoBox("This spot doesn't have any cards to move from!","Moving Error");
 
             }

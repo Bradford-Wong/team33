@@ -37,13 +37,8 @@ public class ApplicationController {
     }
     
     public Result gameGet(){
-        //Deck d = new Deck();
         Game g = new Game();
         g.deck.shuffle();
-//        Error e = new Error();
-//        e.infoBox("heiwohri","hfihsdihfda");
-//        g.buildDeck();
-
         g.dealFour();
 
         return Results.json().render(g);
