@@ -11,7 +11,14 @@ import javax.swing.JOptionPane;
 public class Deck {
     public java.util.List<Card> deck_arr = new ArrayList<Card>();
 
-    public Deck(){}
+    public Deck(){
+        for(int i = 2; i < 15; i++){
+            deck_arr.add(new Card(i,Suit.Clubs));
+            deck_arr.add(new Card(i,Suit.Hearts));
+            deck_arr.add(new Card(i,Suit.Diamonds));
+            deck_arr.add(new Card(i,Suit.Spades));
+        }
+    }
 
     public void shuffle() {
         long seed = System.nanoTime();

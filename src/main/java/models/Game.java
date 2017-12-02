@@ -22,7 +22,7 @@ public class Game {
   //  private java.util.List<Deck> deck = new ArrayList<>();
     public Deck deck = new Deck();
     private java.util.List<Column> cols = new ArrayList<>();
-
+    public Error e = new Error();
 
     public Game(){
 
@@ -30,8 +30,8 @@ public class Game {
         cols.add(new Column());
         cols.add(new Column());
         cols.add(new Column());
-        deck.buildDeck();
-        deck.shuffle();
+      //  deck.buildDeck();
+       // deck.shuffle();
     }
 
 
@@ -62,7 +62,11 @@ public class Game {
     }
 
     //customDeal to setup game for testing purposes
-   /* public void customDeal(int c1, int c2, int c3, int c4) {
+    public void customDeal(int c1, int c2, int c3, int c4) {
+        for(int columnNumber = 0; columnNumber < 4; columnNumber++){
+            remove(columnNumber);
+        }
+
         cols.get(0).addCardToCol(deck.get(c1));
         deck.remove(c1);
         cols.get(1).addCardToCol(deck.get(c2));
@@ -71,7 +75,7 @@ public class Game {
         deck.remove(c3);
         cols.get(3).addCardToCol(deck.get(c4));
         deck.remove(c4);
-    }*/
+    }
 
     public void remove(int columnNumber) {
         if(cols.get(columnNumber).columnHasCards()) {
@@ -94,7 +98,7 @@ public class Game {
                 this.cols.get(columnNumber).removeCard();
             }
             else {
-                Error e = new Error();
+              //  Error e = new Error();
                 e.infoBox("A card can only be removed when another card is showing at the top of another pile with the same suit and higher value!", "Remove Error");
             }
         }
@@ -109,7 +113,7 @@ public class Game {
                 cols.get(columnFrom).removeCard();
                 cols.get(columnTo).addCardToCol(cardToMove);
             }else { //When make an invalid move when there is a card in the column that moving from
-                Error e = new Error();
+               // Error e = new Error();
                 if(columnFrom == columnTo){
                     e.infoBox("Can't move to the same column!", "Moving Error");
                 }
@@ -123,7 +127,7 @@ public class Game {
             }
         }else{ //when the column moving from is empty
             if(cols.get(columnFrom).columnHasCards() == false){
-                Error e = new Error();
+               // Error e = new Error();
                 e.infoBox("This spot doesn't have any cards to move from!","Moving Error");
 
             }
