@@ -15,12 +15,6 @@ public class testGame {
         assertNotNull(g);
     }
 
-    @Test
-    public void testGameBuildDeck(){
-        Game g = new Game();
-
-        assertEquals(52,g.deck.size());
-    }
 
     @Test
     public void testGameInit(){
