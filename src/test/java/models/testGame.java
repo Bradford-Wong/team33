@@ -17,14 +17,6 @@ public class testGame {
 
 
     @Test
-    public void testGameInit(){
-        Game g = new Game();
-      //  g.deck.buildDeck();
-        g.deck.shuffle();
-        assertNotEquals(2,g.deck.get(0).getValue());
-    }
-
-    @Test
     public void testGameStart(){
         Game g = new Game();
 

@@ -25,15 +25,7 @@ public class Deck {
         Collections.shuffle(this.deck_arr, new Random(seed));
 
     }
-    public void buildDeck() {
-        for(int i = 2; i < 15; i++){
-            deck_arr.add(new Card(i,Suit.Clubs));
-            deck_arr.add(new Card(i,Suit.Hearts));
-            deck_arr.add(new Card(i,Suit.Diamonds));
-            deck_arr.add(new Card(i,Suit.Spades));
-        }
 
-    }
     public int size() {
         return this.deck_arr.size();
     }
