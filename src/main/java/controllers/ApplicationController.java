@@ -36,8 +36,14 @@ public class ApplicationController {
         return Results.html().template("views/AcesUp/AcesUp.flt.html");
     }
     
-    public Result gameGet(){
-        Game g = new Game();
+    public Result gameGet(@PathParam ("type") String type){
+        Game g;
+        if(type.equals("spanish")){
+            g = new Game("spanish");
+        } else {
+            g = new Game("normal");
+        }
+
         g.deck.shuffle();
         g.dealFour();
 

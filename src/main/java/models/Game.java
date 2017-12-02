@@ -10,6 +10,7 @@ import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
 /**
  * Assignment 1: Students must implement dealFour(), remove(), move(), and columnHasCards() methods
  *
@@ -19,12 +20,16 @@ import javax.swing.JOptionPane;
 
 public class Game {
     
-    public Deck deck = new Deck();
+    public Deck deck;
     private java.util.List<Column> cols = new ArrayList<>();
     public Error e = new Error();
 
-    public Game(){
-
+    public Game(String type){
+        if(type.equals("normal") || type.equals("")){
+            deck = new Deck("normal");
+        } else if (type.equals("spanish")){
+            deck = new Deck("spanish");
+        }
         cols.add(new Column());
         cols.add(new Column());
         cols.add(new Column());
@@ -53,8 +58,10 @@ public class Game {
 
     public void dealFour() {
         for(int i = 0; i < 4; i++){
-            cols.get(i).addCardToCol(deck.get(deck.size()-1));
-            deck.remove(deck.size()-1);
+            if(deck.size() > 0){
+                cols.get(i).addCardToCol(deck.get(deck.size()-1));
+                deck.remove(deck.size()-1);
+            }
         }
     }
 

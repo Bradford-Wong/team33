@@ -34,7 +34,7 @@ max-width: 100px;
 margin-bottom:-110%;
 }
 
-#dealButton{
+#dealButton {
   margin-top: -90px;
   margin-left: 500px;
   height: 70px;
@@ -43,8 +43,17 @@ margin-bottom:-110%;
   border: 1px solid #4CAF50;
   cursor: pointer;
   background-color: #4CAF50;
-
 }
+
+.gameMode {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  border: 1px solid #4CAF50;
+  cursor: pointer;
+  background-color: #4CAF50;
+}
+
 #Remove1{
 
     background-color: #4CAF50; /* Green */
