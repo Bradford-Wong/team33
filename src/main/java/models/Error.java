@@ -9,8 +9,16 @@ import javax.swing.JOptionPane;
 
 //This is the error box for errors
 public class Error {
-    public static void infoBox(String infoMessage, String titleBar) {
-        JOptionPane.showMessageDialog(null, infoMessage, "Error Message: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
+    public String message;
+    public Error(){
+        message = "";
     }
 
+    public  void infoBox(String infoMessage, String titleBar) {
+        message = infoMessage;
+        JOptionPane.showMessageDialog(null, infoMessage, "Error Message: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
+    }
+    public String getMessage(){
+        return message;
+    }
 }
