@@ -29,6 +29,7 @@ public class testColumn{
 
 
         }
+        //testing if column is returning wrong card
         @Test
     public void testColumnNotTopCard(){
         Deck d = new Deck();
@@ -41,8 +42,9 @@ public class testColumn{
         assertNotEquals("2Hearts",c.getTopCard().toString());
 
     }
+//tests if cards arent in column
     @Test
-    public void testColumnHasCards(){
+    public void testColumnDoesntCards(){
         Deck d = new Deck();
         Column c = new Column();
 
@@ -53,13 +55,34 @@ public class testColumn{
         assertEquals(false,c.columnHasCards());
     }
     @Test
-    public void testColumnRemoveColumn() {
+    // tests if cards are in column
+    public void testColumnHasCards(){
+        Deck d = new Deck();
+        Column c = new Column();
+        d.setupDeck();
+        c.addCardToCol(d.get(0));
+        assertEquals(true,c.columnHasCards());
+    }
+    //tests if no cards to remove
+    @Test
+    public void testColumnNoRemoveColumn() {
         Deck d = new Deck();
         Column c = new Column();
 
 
         d.setupDeck();
         assertEquals(false,c.removeCard());
+    }
+    //Test card remove column
+    @Test
+    public void testColumnRemoveColumn() {
+        Deck d = new Deck();
+        Column c = new Column();
+
+
+        d.setupDeck();
+        c.addCardToCol(d.get(0));
+        assertEquals(true,c.removeCard());
     }
     }
 
