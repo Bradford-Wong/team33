@@ -114,7 +114,9 @@ public class Game {
                             if (compare.getSuit() == Suit.Joker) {
                                 removeCard = true;
                                 this.cols.get(i).removeCard();
-                                this.cols.get(columnNumber).removeCard();
+                                if(i != columnNumber){
+                                    this.cols.get(columnNumber).removeCard();
+                                }
                                 break;
                             }
                         }
