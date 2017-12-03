@@ -36,8 +36,14 @@ public class ApplicationController {
         return Results.html().template("views/AcesUp/AcesUp.flt.html");
     }
     
-    public Result gameGet(){
+    public Result gameGet(@PathParam ("type") String type){
         Game g = new Game();
+        if(type != null && type.equals("spanish")){
+            g.setupGame("spanish");
+        } else {
+            g.setupGame("normal");
+        }
+
         g.deck.shuffle();
         g.dealFour();
 
@@ -45,6 +51,7 @@ public class ApplicationController {
     }
 
     public Result dealPost(Context context, Game g) {
+        System.out.println("CHECK");
         if(context.getRequestPath().contains("deal")){
             g.dealFour();
         }

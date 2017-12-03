@@ -10,6 +10,7 @@ import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
 /**
  * Assignment 1: Students must implement dealFour(), remove(), move(), and columnHasCards() methods
  *
@@ -19,16 +20,25 @@ import javax.swing.JOptionPane;
 
 public class Game {
     
-    public Deck deck = new Deck();
+    public Deck deck;
     private java.util.List<Column> cols = new ArrayList<>();
     public Error e = new Error();
 
     public Game(){
+        //The initializer is below in setupGame
+        deck = new Deck();
+        cols.add(new Column());
+        cols.add(new Column());
+        cols.add(new Column());
+        cols.add(new Column());
+    }
 
-        cols.add(new Column());
-        cols.add(new Column());
-        cols.add(new Column());
-        cols.add(new Column());
+    public void setupGame (String type){    //This is the real initializer beacuse apparantly passing a variable to the initializer somehow causes most routes to crash! Doesn't that just make perfect sense! DOESNT IT?!?!?!?!?!?!?!?!?!?!?!?!??!?!?!?!???!?!?!??!?!
+        if(type.equals("normal") || type.equals("")){
+            deck.setupDeck("normal");
+        } else if (type.equals("spanish")){
+            deck.setupDeck("spanish");
+        }
     }
 
 
@@ -53,8 +63,10 @@ public class Game {
 
     public void dealFour() {
         for(int i = 0; i < 4; i++){
-            cols.get(i).addCardToCol(deck.get(deck.size()-1));
-            deck.remove(deck.size()-1);
+            if(deck.size() > 0){
+                cols.get(i).addCardToCol(deck.get(deck.size()-1));
+                deck.remove(deck.size()-1);
+            }
         }
     }
 
@@ -78,6 +90,7 @@ public class Game {
         if(cols.get(columnNumber).columnHasCards()) {
             Card c = cols.get(columnNumber).getTopCard();
             boolean removeCard = false;
+            //Check for valid move first
             for (int i = 0; i < 4; i++) {
                 if (i != columnNumber) {
                     if (cols.get(i).columnHasCards()) {
@@ -92,9 +105,27 @@ public class Game {
             }
             if (removeCard) {
                 this.cols.get(columnNumber).removeCard();
-            }
-            else {
-                e.infoBox("A card can only be removed when another card is showing at the top of another pile with the same suit and higher value!", "Remove Error");
+            } else {
+                //Check for joker case
+                for (int i = 0; i < 4; i++) {
+                    if (i != columnNumber) {
+                        if (cols.get(i).columnHasCards()) {
+                            Card compare = cols.get(i).getTopCard();
+                            if (compare.getSuit() == Suit.Joker) {
+                                removeCard = true;
+                                this.cols.get(i).removeCard();
+                                if(i != columnNumber){
+                                    this.cols.get(columnNumber).removeCard();
+                                }
+                                break;
+                            }
+                        }
+                    }
+                }
+                //If still no luck return error.
+                if(!removeCard){
+                    e.infoBox("A card can only be removed when another card is showing at the top of another pile with the same suit and higher value!", "Remove Error");
+                }
             }
         }
     }
@@ -104,7 +135,6 @@ public class Game {
         if(cols.get(columnFrom).columnHasCards()){
             Card cardToMove = cols.get(columnFrom).getTopCard();
             if(!cols.get(columnTo).columnHasCards() && cardToMove.getValue() == 14 && cols.get(columnFrom).columnHasCards()){ //check that moving to empty column. Will need to change this line a bit when refactor
-
                 cols.get(columnFrom).removeCard();
                 cols.get(columnTo).addCardToCol(cardToMove);
             }else { //When make an invalid move when there is a card in the column that moving from
