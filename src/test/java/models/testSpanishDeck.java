@@ -2,7 +2,10 @@ package models;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class testSpanishDeck {
     @Test
@@ -22,5 +25,24 @@ public class testSpanishDeck {
         assertEquals(0,g.getcol1().size());
         assertEquals(1,g.getcol2().size());
         assertEquals(1,g.getcol3().size());
+    }
+
+    @Test
+    public void testSpanishDeckSize(){
+        Deck d = new SpanishDeck();
+        d.setupDeck();
+        assertEquals(50,d.size());
+    }
+
+    @Test
+    public void testDeckShuffled() {
+        Deck deck1 = new SpanishDeck();
+        deck1.setupDeck();
+        deck1.shuffle();
+        Deck deck2 = new Deck();
+        deck2.setupDeck();
+        for (int i = 2; i < 15; i++) {
+            assertFalse(Arrays.equals(deck1.deck_arr.toArray(), deck2.deck_arr.toArray()));
+        }
     }
 }
