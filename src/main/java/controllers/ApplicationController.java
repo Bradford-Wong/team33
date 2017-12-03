@@ -51,7 +51,6 @@ public class ApplicationController {
     }
 
     public Result dealPost(Context context, Game g) {
-        System.out.println("CHECK");
         if(context.getRequestPath().contains("deal")){
             g.dealFour();
         }

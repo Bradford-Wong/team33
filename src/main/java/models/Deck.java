@@ -15,25 +15,13 @@ public class Deck {
         //The real initializer is setupDeck below.
     }
 
-    public void setupDeck(String type) {    //This is the real initializer beacuse apparantly passing a variable to the initializer somehow causes most routes to crash! Doesn't that just make perfect sense! DOESNT IT?!?!?!?!?!?!?!?!?!?!?!?!??!?!?!?!???!?!?!??!?!
-        if(type.equals("normal") || type.equals("")){
-            for(int i = 2; i < 15; i++){
-                deck_arr.add(new Card(i,Suit.Clubs));
-                deck_arr.add(new Card(i,Suit.Hearts));
-                deck_arr.add(new Card(i,Suit.Diamonds));
-                deck_arr.add(new Card(i,Suit.Spades));
-            }
-        } else if (type.equals("spanish")){
-            for(int i = 1; i < 13; i++){
-                deck_arr.add(new Card(i,Suit.Bastos));
-                deck_arr.add(new Card(i,Suit.Oros));
-                deck_arr.add(new Card(i,Suit.Copas));
-                deck_arr.add(new Card(i,Suit.Espadas ));
-            }
-            deck_arr.add(new Card(0,Suit.Joker));
-            deck_arr.add(new Card(0,Suit.Joker));
+    public void setupDeck() {    //This is the real initializer beacuse apparantly passing a variable to the initializer somehow causes most routes to crash! Doesn't that just make perfect sense! DOESNT IT?!?!?!?!?!?!?!?!?!?!?!?!??!?!?!?!???!?!?!??!?!
+        for(int i = 2; i < 15; i++){
+            deck_arr.add(new Card(i,Suit.Clubs));
+            deck_arr.add(new Card(i,Suit.Hearts));
+            deck_arr.add(new Card(i,Suit.Diamonds));
+            deck_arr.add(new Card(i,Suit.Spades));
         }
-
     }
 
     public void shuffle() {

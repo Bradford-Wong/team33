@@ -26,7 +26,6 @@ public class Game {
 
     public Game(){
         //The initializer is below in setupGame
-        deck = new Deck();
         cols.add(new Column());
         cols.add(new Column());
         cols.add(new Column());
@@ -35,13 +34,12 @@ public class Game {
 
     public void setupGame (String type){    //This is the real initializer beacuse apparantly passing a variable to the initializer somehow causes most routes to crash! Doesn't that just make perfect sense! DOESNT IT?!?!?!?!?!?!?!?!?!?!?!?!??!?!?!?!???!?!?!??!?!
         if(type.equals("normal") || type.equals("")){
-            deck.setupDeck("normal");
+            deck = new Deck();
         } else if (type.equals("spanish")){
-            deck.setupDeck("spanish");
+            deck = new SpanishDeck();
         }
+        deck.setupDeck();
     }
-
-
 
     public java.util.List<Card> getcol1() {    //This is because apparantly the routing backend has trouble converting the columns to json
         return cols.get(0).col;
@@ -156,9 +154,6 @@ public class Game {
             }
 
         }
-
-
-
     }
 }
 
