@@ -11,7 +11,11 @@ import javax.swing.JOptionPane;
 public class Deck {
     public java.util.List<Card> deck_arr = new ArrayList<Card>();
 
-    public Deck(String type){
+    public Deck() {
+        //The real initializer is setupDeck below.
+    }
+
+    public void setupDeck(String type) {    //This is the real initializer beacuse apparantly passing a variable to the initializer somehow causes most routes to crash! Doesn't that just make perfect sense! DOESNT IT?!?!?!?!?!?!?!?!?!?!?!?!??!?!?!?!???!?!?!??!?!
         if(type.equals("normal") || type.equals("")){
             for(int i = 2; i < 15; i++){
                 deck_arr.add(new Card(i,Suit.Clubs));

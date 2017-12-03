@@ -110,24 +110,40 @@
 <script>
 
 var game;
+var mode;
 
 function cardImage(value, suit){
-    if(value == 10) {
-        value = "0";
-    } else if(value == 11){
-        value = "J";
-    } else if (value == 12) {
-        value = "Q";
-    } else if (value == 13) {
-        value = "K";
-    } else if (value == 14) {
-        value = "A";
+    if(mode == "normal"){
+
+        if(value == 10) {
+            value = "0";
+        } else if(value == 11){
+            value = "J";
+        } else if (value == 12) {
+            value = "Q";
+        } else if (value == 13) {
+            value = "K";
+        } else if (value == 14) {
+            value = "A";
+        }
+        //The reason we did this was because something was wrong with ace of diamonds with the api
+        if(value + suit[0] == 'AD'){
+            return "<img class='cardImage' src= 'https://i.gyazo.com/7379d159a2607da667816ffece46f937.png'>"
+        }
+        return "<img class='cardImage' src='https://deckofcardsapi.com/static/img/" + value + suit[0] + ".png'>"
+    } else {
+        if(value == 0){
+            return "<img class='cardImage' src='/assets/images/0.png'>"
+        }
+        if(value == 10) {
+            value = "J";
+        } else if(value == 11){
+            value = "Q";
+        } else if (value == 12) {
+            value = "K";
+        }
+        return "<img class='cardImage' src='/assets/images/" + value + suit[0] + ".png'>";
     }
-    //The reason we did this was because something was wrong with ace of diamonds with the api
-    if(value + suit[0] == 'AD'){
-        return "<img class='cardImage' src= 'https://i.gyazo.com/7379d159a2607da667816ffece46f937.png'>"
-    }
-    return "<img class='cardImage' src='https://deckofcardsapi.com/static/img/" + value + suit[0] + ".png'>"
 }
 
 function display(game) {
@@ -157,11 +173,13 @@ $(document).ready(function(){
         $("#gameScreen").show();
         $("#startScreen").hide();
         if($(this).attr('id') == "regularMode"){
+            mode="normal";
             $.getJSON("http://localhost:8080/game/normal", function( data ) {
                 display(data);
                 game = data;
             });
         } else if ($(this).attr('id') == "spanishMode"){
+            mode="spanish";
             $.getJSON("http://localhost:8080/game/spanish", function( data ) {
                 display(data);
                 game = data;

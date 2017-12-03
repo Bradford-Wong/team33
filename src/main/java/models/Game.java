@@ -24,16 +24,21 @@ public class Game {
     private java.util.List<Column> cols = new ArrayList<>();
     public Error e = new Error();
 
-    public Game(String type){
+    public Game(){
+        //The initializer is below in setupGame
+        deck = new Deck();
+        cols.add(new Column());
+        cols.add(new Column());
+        cols.add(new Column());
+        cols.add(new Column());
+    }
+
+    public void setupGame (String type){    //This is the real initializer beacuse apparantly passing a variable to the initializer somehow causes most routes to crash! Doesn't that just make perfect sense! DOESNT IT?!?!?!?!?!?!?!?!?!?!?!?!??!?!?!?!???!?!?!??!?!
         if(type.equals("normal") || type.equals("")){
-            deck = new Deck("normal");
+            deck.setupDeck("normal");
         } else if (type.equals("spanish")){
-            deck = new Deck("spanish");
+            deck.setupDeck("spanish");
         }
-        cols.add(new Column());
-        cols.add(new Column());
-        cols.add(new Column());
-        cols.add(new Column());
     }
 
 

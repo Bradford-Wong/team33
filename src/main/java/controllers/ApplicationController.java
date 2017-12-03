@@ -37,11 +37,10 @@ public class ApplicationController {
     }
     
     public Result gameGet(@PathParam ("type") String type){
-        Game g;
-        if(type.equals("spanish")){
-            g = new Game("spanish");
+        Game g = new Game();
+        if(type != null && type.equals("spanish")){
         } else {
-            g = new Game("normal");
+            g.setupGame("normal");
         }
 
         g.deck.shuffle();
@@ -51,6 +50,7 @@ public class ApplicationController {
     }
 
     public Result dealPost(Context context, Game g) {
+        System.out.println("CHECK");
         if(context.getRequestPath().contains("deal")){
             g.dealFour();
         }
