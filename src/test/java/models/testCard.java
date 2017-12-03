@@ -19,18 +19,13 @@ public class testCard {
         Card c = new Card(5,Suit.Clubs);
         assertEquals("5Clubs",c.toString());
     }
-/*
+    //test if wrong value thats not in the type
     @Test
-    public void testMoveCard(){
-        Game g = new Game();
-        g.deck.buildDeck();
-        g.customDeal(0,3,6,9);
-        g.deck.remove(2);
-        assertEquals(0,g.cols.get(2).size());
-        g.move(0,2);
-        assertEquals(1,g.cols.get(2).size());
-        assertEquals(0,g.cols.get(0).size());
-    }*/
+    public void testWrongValue(){
+        Card c = new Card(15,Suit.Hearts);
+        assertNotEquals("AHearts",c.toString());
+    }
+
 
 
 }

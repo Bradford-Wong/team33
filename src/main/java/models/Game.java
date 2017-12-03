@@ -115,6 +115,7 @@ public class Game {
                                 if(i != columnNumber){
                                     this.cols.get(columnNumber).removeCard();
                                 }
+
                                 break;
                             }
                         }

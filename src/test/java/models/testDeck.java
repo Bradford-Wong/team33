@@ -36,4 +36,10 @@ public class testDeck {
         assertFalse( Arrays.equals(deck1.deck_arr.toArray(),deck2.deck_arr.toArray()));
     }
 }
+    @Test
+    public void testDeckNotCreated(){
+        //this is to check that the deck needs the setup call and it is not on the constructor
+        Deck d = new Deck();
+        assertEquals(0,d.deck_arr.size());
+    }
 }

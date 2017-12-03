@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 public class Error {
     public String message;
     public Error(){
+
         message = "";
     }
 
