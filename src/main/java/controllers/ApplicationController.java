@@ -39,6 +39,7 @@ public class ApplicationController {
     public Result gameGet(@PathParam ("type") String type){
         Game g = new Game();
         if(type != null && type.equals("spanish")){
+            g.setupGame("spanish");
         } else {
             g.setupGame("normal");
         }
