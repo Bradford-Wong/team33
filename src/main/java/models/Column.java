@@ -17,8 +17,8 @@ public class Column {
                 return true;
         }
         else {
-            Error e = new Error();
-            e.infoBox("A card can only be removed when another card is showing at the top of another pile with the same suit and higher value!", "Remove Error");
+
+
             return false;
         }
     }
