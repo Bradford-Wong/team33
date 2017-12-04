@@ -11,6 +11,35 @@ h1 {
     color: #00822f;
 }
 
+#highScores
+{
+ border-radius: 50%;
+  border: 1px solid #4CAF50;
+  cursor: pointer;
+  background-color: #4CAF50;
+  margin-left: 160px;
+
+}
+
+#scores
+{
+    margin-left: 125px;
+    visibility: hidden;
+    display: none;
+}
+
+#highScore {
+    margin-left: 125px;
+    background-color: #4CAF50;
+    border: 1px solid black;
+}
+
+#currentScore {
+    margin-left: 125px;
+    background-color: #4CAF50;
+    border: 1px solid black;
+}
+
 tr{
 width:500px;
 }
@@ -19,6 +48,21 @@ td{
 width:100px;
 height:20px;
 text-align:center;
+}
+
+#newGame {
+margin-top: -90px;
+  margin-left: 500px;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  border: 1px solid #4CAF50;
+  cursor: pointer;
+  background-color: #4CAF50;
+}
+
+th {
+    border: 1px solid black;
 }
 
 .title{

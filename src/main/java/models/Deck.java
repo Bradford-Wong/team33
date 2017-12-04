@@ -10,8 +10,10 @@ import javax.swing.JOptionPane;
 
 public class Deck {
     public java.util.List<Card> deck_arr = new ArrayList<Card>();
+    public int pointsEarned;
 
     public Deck() {
+        pointsEarned = 0;
         //The real initializer is setupDeck below.
     }
 

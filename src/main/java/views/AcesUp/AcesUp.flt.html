@@ -10,6 +10,71 @@
     <button class="gameMode" id="spanishMode">Spanish game</button>
 </div>
 
+<table id="currentScore">
+    <td> Score </td>
+    <td> 0 </td>
+</table>
+
+<table id="highScore">
+    <td> High Score </td>
+    <td> 0 </td>
+</table>
+
+<br/>
+
+<button onclick="toggleScore()" id="highScores">Show High Scores</button>
+
+<div id="scores">
+    <div>
+        <table id="scoresTable">
+            <tr>
+                <th> Place </th>
+                <th> Score </th>
+            </tr>
+            <tr>
+                <td> 1 </td>
+                <td> 0 </td>
+            </tr>
+            <tr>
+                <td> 2 </td>
+                <td> 0 </td>
+            </tr>
+            <tr>
+                <td> 3 </td>
+                <td> 0 </td>
+            </tr>
+            <tr>
+                <td> 4 </td>
+                <td> 0 </td>
+            </tr>
+            <tr>
+                <td> 5 </td>
+                <td> 0 </td>
+            </tr>
+            <tr>
+                <td> 6 </td>
+                <td> 0 </td>
+            </tr>
+            <tr>
+                <td> 7 </td>
+                <td> 0 </td>
+            </tr>
+            <tr>
+                <td> 8 </td>
+                <td> 0 </td>
+            </tr>
+            <tr>
+                <td> 9 </td>
+                <td> 0 </td>
+            </tr>
+            <tr>
+                <td> 10 </td>
+                <td> 0 </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
 <div id="gameScreen" style="display:none;">
     <table>
         <tr class="title">
@@ -105,12 +170,37 @@
     to <select id = "to_col"> <option value="0">0</option> <option value="1">1</option> <option value = "2"> 2 </option> <option value = "3">3</option></select>
     <!--button for move-->
     <button id="moveButton">Move</button>
+
+    <button id="newGame">New Game</button>
 </div>
 
 <script>
 
 var game;
 var mode;
+
+function incrementValue(game)
+{
+        var s = document.getElementById("currentScore").rows[0].cells;
+        s[1].innerHTML = game.deck.pointsEarned;
+}
+
+function toggleScore()
+{
+    var scores = document.getElementById("scores");
+
+    if(scores.style.visibility === "hidden")
+    {
+        scores.style.visibility = "visible";
+        scores.style.display = "block";
+    }
+
+    else
+    {
+        scores.style.visibility = "hidden";
+        scores.style.display = "none";
+    }
+}
 
 function cardImage(value, suit){
     if(mode == "normal"){
@@ -207,15 +297,104 @@ $("#dealButton").click(function(){
     });
 });
 
+$("#newGame").click(function() {
+        $("#gameScreen").hide();
+        $("#startScreen").show();
+
+        var s = document.getElementById("currentScore").rows[0].cells;
+        var h = document.getElementById("highScore").rows[0].cells;
+        var temp;
+
+        var hInt = parseInt(h[1].innerHTML);
+        var sInt = parseInt(s[1].innerHTML);
+
+        console.log("hInt: " + h[1].innerHTML + "sInt: " + s[1].innerHTML);
+
+        if(sInt > hInt)
+        {
+               h[1].innerHTML = sInt;
+        }
+
+
+        if(sInt > parseInt(document.getElementById("scoresTable").rows[1].cells[1].innerHTML))
+        {
+            temp = parseInt(document.getElementById("scoresTable").rows[1].cells[1].innerHTML);
+            document.getElementById("scoresTable").rows[1].cells[1].innerHTML = sInt;
+            sInt = temp;
+        }
+
+        if(sInt > parseInt(document.getElementById("scoresTable").rows[2].cells[1].innerHTML))
+        {
+             temp = parseInt(document.getElementById("scoresTable").rows[2].cells[1].innerHTML);
+            document.getElementById("scoresTable").rows[2].cells[1].innerHTML = sInt;
+            sInt = temp;
+        }
+
+        if(sInt > parseInt(document.getElementById("scoresTable").rows[3].cells[1].innerHTML))
+        {
+            temp = parseInt(document.getElementById("scoresTable").rows[3].cells[1].innerHTML);
+            document.getElementById("scoresTable").rows[3].cells[1].innerHTML = sInt;
+            sInt = temp;
+        }
+
+        if(sInt > parseInt(document.getElementById("scoresTable").rows[4].cells[1].innerHTML))
+        {
+            temp = parseInt(document.getElementById("scoresTable").rows[4].cells[1].innerHTML);
+            document.getElementById("scoresTable").rows[4].cells[1].innerHTML = sInt;
+            sInt = temp;
+        }
+
+        if(sInt > parseInt(document.getElementById("scoresTable").rows[5].cells[1].innerHTML))
+        {
+        temp = parseInt(document.getElementById("scoresTable").rows[5].cells[1].innerHTML);
+            document.getElementById("scoresTable").rows[5].cells[1].innerHTML = sInt;
+            sInt = temp;
+        }
+
+        if(sInt > parseInt(document.getElementById("scoresTable").rows[6].cells[1].innerHTML))
+        {
+        temp = parseInt(document.getElementById("scoresTable").rows[6].cells[1].innerHTML);
+            document.getElementById("scoresTable").rows[6].cells[1].innerHTML = sInt;
+            sInt = temp;
+        }
+
+         if(sInt > parseInt(document.getElementById("scoresTable").rows[7].cells[1].innerHTML))
+        {
+        temp = parseInt(document.getElementById("scoresTable").rows[7].cells[1].innerHTML);
+            document.getElementById("scoresTable").rows[7].cells[1].innerHTML = sInt;
+            sInt = temp;
+        }
+
+        if(sInt > parseInt(document.getElementById("scoresTable").rows[8].cells[1].innerHTML))
+        {
+        temp = parseInt(document.getElementById("scoresTable").rows[8].cells[1].innerHTML);
+            document.getElementById("scoresTable").rows[8].cells[1].innerHTML = sInt;
+            sInt = temp;
+        }
+
+        if(sInt > parseInt(document.getElementById("scoresTable").rows[9].cells[1].innerHTML))
+        {
+        temp = parseInt(document.getElementById("scoresTable").rows[9].cells[1].innerHTML);
+            document.getElementById("scoresTable").rows[9].cells[1].innerHTML = sInt;
+            sInt = temp;
+        }
+
+        document.getElementById("currentScore").rows[0].cells[1].innerHTML = 0;
+});
+
 
 function removeCard(colNumber){
     $.ajax({
         type: "POST",
         url: "/removeCard/"+colNumber,
         data: JSON.stringify(game),
-        success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
+        success: function(data, status)
+        {
+        console.log("Data: " + data + "\nStatus: " + status);
         game = data;
-        display(data);},
+        incrementValue(data);
+        display(data);
+        },
         contentType:"application/json; charset=utf-8",
         dataType:"json",
     });

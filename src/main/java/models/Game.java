@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  */
 
 public class Game {
-    
+
     public Deck deck;
     private java.util.List<Column> cols = new ArrayList<>();
     public Error e = new Error();
@@ -103,6 +103,7 @@ public class Game {
             }
             if (removeCard) {
                 this.cols.get(columnNumber).removeCard();
+                deck.pointsEarned++;
             } else {
                 //Check for joker case
                 for (int i = 0; i < 4; i++) {
@@ -114,6 +115,7 @@ public class Game {
                                 this.cols.get(i).removeCard();
                                 if(i != columnNumber){
                                     this.cols.get(columnNumber).removeCard();
+                                    deck.pointsEarned++;
                                 }
 
                                 break;
